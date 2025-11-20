@@ -1,0 +1,44 @@
+body {
+    background: #e8e8e8;
+    font-family: Arial, sans-serif;
+    padding-top: 60px;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    width: 700px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.button {
+    background: #4A90E2;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}

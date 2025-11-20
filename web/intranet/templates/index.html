@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>[INTRANET] Internal Employee Directory</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h6 style="text-align: center">[INTRANET]</h6>
+      <h1>Employee Directory</h1>
+      <form method="POST">
+        <input type="text" name="search" placeholder="Search employees..." value="{{ search_query }}">
+        <button class="button">Search</button>
+      </form>
+      <hr>
+{% if results %}
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Position</th>
+        </tr>
+  {% for row in results %}
+        <tr>
+          <td>{{ row.id }}</td>
+          <td>{{ row.name }}</td>
+          <td>{{ row.department }}</td>
+          <td>{{ row.position }}</td>
+        </tr>
+  {% endfor %}
+      </table>
+{% else %}
+      <p>No employees found.</p>
+{% endif %}
+    </div>
+  </body>
+</html>

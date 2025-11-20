@@ -1,0 +1,45 @@
+services:
+  web:
+    build: ./web
+    container_name: pivoting-web
+    hostname: web
+    ports:
+    - '22:22'
+    - '80:8000'
+    - '1080:1080'
+    - '9050:9050'
+    - '1337:1337'
+    networks:
+    - default
+    - internal-network
+    restart: always
+  dev:
+    build: ./dev
+    container_name: pivoting-dev
+    hostname: dev
+    networks:
+    - internal-network
+    restart: always
+  manager:
+    build: ./manager
+    container_name: pivoting-manager
+    hostname: manager
+    networks:
+    - internal-network-2
+    restart: always
+  db:
+    build: ./db
+    container_name: pivoting-db
+    environment:
+      POSTGRES_DB: intranet
+      POSTGRES_PASSWORD: dbpassword
+    hostname: db
+    networks:
+    - internal-network
+    - internal-network-2
+    restart: always
+networks:
+  internal-network:
+    internal: true
+  internal-network-2:
+    internal: true
