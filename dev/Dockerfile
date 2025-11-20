@@ -9,10 +9,9 @@ RUN adduser --system --shell /bin/bash --gecos '' --group --disabled-password --
 COPY gitea-1.25.1-linux-arm64.xz /usr/local/bin/gitea.xz
 COPY gitea/custom /usr/local/bin/custom
 COPY gitea/data /usr/local/bin/data
-COPY gitea/log /usr/local/bin/log
 COPY supervisord.conf /etc/supervisord.conf
 
-RUN xz -d /usr/local/bin/gitea.xz && mkdir /var/run/sshd && chmod +x /usr/local/bin/gitea && chown -R git:git /usr/local/bin/custom /usr/local/bin/data /usr/local/bin/log
+RUN xz -d /usr/local/bin/gitea.xz && mkdir /var/run/sshd /usr/local/bin/log && chmod +x /usr/local/bin/gitea && chown -R git:git /usr/local/bin/custom /usr/local/bin/data /usr/local/bin/log
 
 EXPOSE 22
 EXPOSE 3000
