@@ -6,9 +6,8 @@ services:
     ports:
     - '22:22'
     - '80:8000'
-    - '1080:1080'
-    - '9050:9050'
     - '1337:1337'
+    - '31337:31337'
     networks:
     - default
     - internal-network
